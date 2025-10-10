@@ -1,0 +1,256 @@
+/* ===========================================================
+   PLANET QAINTAI — GLOBAL STYLE (UPDATED)
+   ===========================================================
+   🇳🇱 Donker thema met goudgroene accenten.
+   Deze versie behoudt alle originele stijlen, maar verwijdert
+   de vaste linker navigatie en gebruikt een topnavigatie.
+   =========================================================== */
+
+/* ------------------- ROOT VARIABELEN ------------------- */
+:root {
+  --accent: #00ff88;        /* NL: primaire accentkleur (groen neon) */
+  --accent-gold: #d4af37;   /* NL: secundaire accentkleur (goud) */
+  --bg: #0c0c0c;            /* NL: hoofdkleur achtergrond */
+  --ink: #e0e0e0;           /* NL: standaard tekstkleur */
+  --panel: #1a1a1a;         /* NL: panel-achtergrond */
+  --muted: #9e9e9e;         /* NL: gedempte tekstkleur */
+  --shadow: rgba(0, 0, 0, 0.45);
+  --font-sans: "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* ------------------- BASISSTRUCTUUR ------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* ------------------- TYPOGRAFIE ------------------- */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--accent);
+  text-shadow: 0 0 15px rgba(0, 255, 136, 0.25);
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  color: var(--accent-gold);
+  text-align: center;
+}
+
+p {
+  color: var(--ink);
+  margin-bottom: 1.2em;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-gold);
+  text-decoration: underline;
+}
+
+/* ------------------- TOPNAVIGATIE ------------------- */
+nav {
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.85);
+  border-bottom: 2px solid var(--accent);
+  box-shadow: 0 0 25px rgba(0, 255, 136, 0.2);
+  z-index: 1000;
+}
+
+nav .logo img {
+  width: 120px;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  margin-right: 40px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  font-size: 1.05rem;
+  color: var(--ink);
+  padding: 10px 18px;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--accent-gold);
+  background: rgba(0, 255, 136, 0.1);
+}
+
+/* ------------------- MAIN INHOUD ------------------- */
+main {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 0 20px var(--shadow);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.panel:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(0, 255, 136, 0.2);
+}
+
+.panel h2 {
+  margin-top: 0;
+  margin-bottom: 0.8em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+ul {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+ul li {
+  margin-bottom: 0.5em;
+}
+
+/* ------------------- MEDIA ELEMENTEN ------------------- */
+img, video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  text-align: center;
+  font-size: 0.9em;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+/* ------------------- RESPONSIVE DESIGN ------------------- */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 15px 0;
+  }
+
+  nav .logo img {
+    margin: 0 0 10px 0;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  main {
+    margin: 40px 10px;
+    padding: 10px;
+  }
+
+  .panel {
+    padding: 25px;
+  }
+}
+
+/* ------------------- FOOTER ------------------- */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.9em;
+  color: var(--muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+footer a {
+  color: var(--accent);
+}
+
+footer a:hover {
+  color: var(--accent-gold);
+}
+
+/* ------------------- PLANET PAGE OVERRIDE ------------------- */
+/* 🇳🇱 Verwijdert vaste linker navigatie, zet nav bovenaan. */
+
+.planet-page nav {
+  position: static;
+  width: 100%;
+  height: auto;
+  border-right: none;
+  border-bottom: 2px solid var(--accent);
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+
+.planet-page nav .logo img {
+  margin: 10px 0;
+}
+
+.planet-page nav ul {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin: 10px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.planet-page main {
+  margin-left: 0;
+  margin-top: 40px;
+}
+
+/* ===========================================================
+   EINDE BESTAND - planetqaintai.org/css/style.css
+   =========================================================== */
