@@ -1,256 +1,286 @@
-/* ===========================================================
-   PLANET QAINTAI — GLOBAL STYLE (UPDATED)
-   ===========================================================
-   🇳🇱 Donker thema met goudgroene accenten.
-   Deze versie behoudt alle originele stijlen, maar verwijdert
-   de vaste linker navigatie en gebruikt een topnavigatie.
-   =========================================================== */
+/* style.css */
+/* =========================================================
+   Planet Qaintai – Global Stylesheet
+   Path: /css/style.css
+   Purpose: Clean, complete, and centralized styling
+   ========================================================= */
 
-/* ------------------- ROOT VARIABELEN ------------------- */
 :root {
-  --accent: #00ff88;        /* NL: primaire accentkleur (groen neon) */
-  --accent-gold: #d4af37;   /* NL: secundaire accentkleur (goud) */
-  --bg: #0c0c0c;            /* NL: hoofdkleur achtergrond */
-  --ink: #e0e0e0;           /* NL: standaard tekstkleur */
-  --panel: #1a1a1a;         /* NL: panel-achtergrond */
-  --muted: #9e9e9e;         /* NL: gedempte tekstkleur */
-  --shadow: rgba(0, 0, 0, 0.45);
-  --font-sans: "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --accent-gold: #d4af37;
+  --accent: #00ff88;
+  --text: #e9e9e9;
+  --bg: #000;
+  --glass: rgba(0, 0, 0, 0.45);
+  --glass-strong: rgba(0, 0, 0, 0.6);
+  --line: rgba(255, 255, 255, 0.12);
 }
 
-/* ------------------- BASISSTRUCTUUR ------------------- */
-*, *::before, *::after {
+* {
   box-sizing: border-box;
 }
-
 html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  height: 100%;
+  scroll-behavior: smooth;
   background-color: var(--bg);
-  color: var(--ink);
-  font-family: var(--font-sans);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body.page-planet {
+  background: url('/media/img/planet.png') no-repeat center center fixed;
+  background-size: contain;
+}
+body.page-f1elds {
+  background: url('/media/img/f1elds.png') no-repeat center center fixed;
+  background-size: cover;
+}
+body.page-be1ng {
+  background: url('/media/img/be1ng.png') no-repeat center center fixed;
+  background-size: cover;
+}
+body.page-parad1ze {
+  background: url('/media/img/parad1ze.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+#cookie-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+#cookie-popup h2 {
+  font-size: 2.5em;
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+  margin-bottom: 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in;
+}
+#cookie-popup p {
+  font-size: 1.2em;
+  color: var(--accent-gold);
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 30px;
   line-height: 1.6;
 }
-
-/* ------------------- TYPOGRAFIE ------------------- */
-h1, h2, h3, h4 {
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--accent);
-  text-shadow: 0 0 15px rgba(0, 255, 136, 0.25);
-  margin-top: 0;
-}
-
-h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  text-align: center;
-  letter-spacing: 1px;
-}
-
-h2 {
-  font-size: clamp(1.4rem, 3.5vw, 2rem);
+#cookie-popup h3 {
+  font-size: 2em;
   color: var(--accent-gold);
-  text-align: center;
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+  animation: blink 1.5s infinite;
+}
+#cookie-popup.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
 }
 
-p {
-  color: var(--ink);
-  margin-bottom: 1.2em;
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--accent-gold);
-  text-decoration: underline;
-}
-
-/* ------------------- TOPNAVIGATIE ------------------- */
 nav {
-  position: relative;
-  width: 100%;
-  padding: 20px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.85);
-  border-bottom: 2px solid var(--accent);
-  box-shadow: 0 0 25px rgba(0, 255, 136, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid var(--line);
 }
-
 nav .logo img {
-  width: 120px;
-  height: auto;
-  user-select: none;
-  -webkit-user-drag: none;
-  margin-right: 40px;
+  height: 56px;
+  width: auto;
+  display: block;
 }
-
 nav ul {
   list-style: none;
-  display: flex;
-  gap: 25px;
   margin: 0;
   padding: 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
-
-nav ul li a {
-  font-size: 1.05rem;
-  color: var(--ink);
-  padding: 10px 18px;
-  border-radius: 6px;
-  transition: background 0.3s ease, color 0.3s ease;
+nav ul li {
+  margin: 0;
 }
-
-nav ul li a:hover {
-  color: var(--accent-gold);
-  background: rgba(0, 255, 136, 0.1);
+nav a.button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.3);
+  transition: background 0.3s, color 0.3s;
 }
-
-/* ------------------- MAIN INHOUD ------------------- */
-main {
-  max-width: 1000px;
-  margin: 60px auto;
-  padding: 20px;
+nav a.button:hover {
+  background: var(--accent);
+  color: #000;
 }
 
 .panel {
-  background: var(--panel);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  padding: 40px;
-  box-shadow: 0 0 20px var(--shadow);
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  margin: 160px auto 140px auto;
+  max-width: 800px;
+  width: min(92vw, 800px);
+  padding: 2rem;
+  background: var(--glass);
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  text-align: center;
 }
-
-.panel:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 25px rgba(0, 255, 136, 0.2);
+.panel h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--accent);
+  margin-bottom: 0.2em;
 }
-
 .panel h2 {
-  margin-top: 0;
-  margin-bottom: 0.8em;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--accent-gold);
+  margin-bottom: 1em;
 }
 
-.text-center {
-  text-align: center;
+.platform-links {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.platform-links a {
+  display: inline-block;
+  padding: 0.7em 1.2em;
+  border: 2px solid var(--accent-gold);
+  border-radius: 12px;
+  color: var(--accent-gold);
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1em;
+  background: rgba(0, 0, 0, 0.5);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.platform-links a:hover {
+  background: var(--accent-gold);
+  color: #000;
 }
 
-ul {
-  margin: 1em 0;
-  padding-left: 1.5em;
-}
-
-ul li {
-  margin-bottom: 0.5em;
-}
-
-/* ------------------- MEDIA ELEMENTEN ------------------- */
-img, video {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-figure {
-  margin: 0;
-}
-
-figcaption {
-  text-align: center;
-  font-size: 0.9em;
-  color: var(--muted);
-  margin-top: 5px;
-}
-
-/* ------------------- RESPONSIVE DESIGN ------------------- */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    padding: 15px 0;
-  }
-
-  nav .logo img {
-    margin: 0 0 10px 0;
-  }
-
-  nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  main {
-    margin: 40px 10px;
-    padding: 10px;
-  }
-
-  .panel {
-    padding: 25px;
-  }
-}
-
-/* ------------------- FOOTER ------------------- */
 footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-top: 1px solid var(--line);
+  color: var(--accent-gold);
   text-align: center;
-  padding: 40px 20px;
   font-size: 0.9em;
-  color: var(--muted);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(0, 0, 0, 0.8);
 }
-
 footer a {
   color: var(--accent);
+  text-decoration: none;
 }
-
 footer a:hover {
   color: var(--accent-gold);
 }
 
-/* ------------------- PLANET PAGE OVERRIDE ------------------- */
-/* 🇳🇱 Verwijdert vaste linker navigatie, zet nav bovenaan. */
+/* F1elds page - tekstblok linksonder */
+.fields-overlay {
+  position: fixed;
+  left: 2rem;
+  bottom: 5rem;
+  max-width: 500px;
+  width: min(90vw, 500px);
+  padding: 1.5rem;
+  background: var(--glass-strong);
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  text-align: left;
+}
+.fields-overlay h2 {
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+.fields-overlay p {
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+.fields-overlay p:last-child {
+  margin-bottom: 0;
+}
 
-.planet-page nav {
-  position: static;
-  width: 100%;
-  height: auto;
-  border-right: none;
-  border-bottom: 2px solid var(--accent);
-  background: rgba(0, 0, 0, 0.85);
+/* Zone navigatie knoppen naast titel */
+.zone-header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  z-index: 1000;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+.zone-header h2 {
+  margin: 0;
+}
+.zone-nav {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.zone-nav a {
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  border: 2px solid var(--accent-gold);
+  border-radius: 8px;
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.zone-nav a:hover {
+  background: var(--accent-gold);
+  color: #000;
 }
 
-.planet-page nav .logo img {
-  margin: 10px 0;
+/* Responsive voor kleinere schermen */
+@media (max-width: 768px) {
+  .fields-overlay {
+    left: 1rem;
+    bottom: 4rem;
+    max-width: calc(100vw - 2rem);
+  }
 }
-
-.planet-page nav ul {
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
-  margin: 10px 0;
-  padding: 0;
-  list-style: none;
-}
-
-.planet-page main {
-  margin-left: 0;
-  margin-top: 40px;
-}
-
-/* ===========================================================
-   EINDE BESTAND - planetqaintai.org/css/style.css
-   =========================================================== */
+/* style.css */
