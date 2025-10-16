@@ -1,8 +1,7 @@
 /* style.css */
 /* =========================================================
-   Planet Qaintai – Global Stylesheet
-   Path: /css/style.css
-   Purpose: Clean, complete, and centralized styling
+   Planet Qaintai – Global Stylesheet (Production Version)
+   Updated: includes Enemy page section (U.A.I.P.)
    ========================================================= */
 
 :root {
@@ -31,6 +30,9 @@ html, body {
   position: relative;
 }
 
+/* =========================================================
+   PAGE BACKGROUNDS
+   ========================================================= */
 body.page-planet {
   background: url('/media/img/planet.png') no-repeat center center fixed;
   background-size: contain;
@@ -47,7 +49,14 @@ body.page-parad1ze {
   background: url('/media/img/parad1ze.png') no-repeat center center fixed;
   background-size: cover;
 }
+body.page-enemy {
+  background: url('/uaip/enemy_bg.png') center center no-repeat fixed;
+  background-size: cover;
+}
 
+/* =========================================================
+   POPUPS, NAVIGATION, PANEL BASES
+   ========================================================= */
 #cookie-popup {
   position: fixed;
   inset: 0;
@@ -123,9 +132,7 @@ nav ul {
   gap: 1rem;
   align-items: center;
 }
-nav ul li {
-  margin: 0;
-}
+nav ul li { margin: 0; }
 nav a.button {
   display: inline-block;
   padding: 0.5em 1em;
@@ -137,10 +144,7 @@ nav a.button {
   background: rgba(0, 0, 0, 0.3);
   transition: background 0.3s, color 0.3s;
 }
-nav a.button:hover {
-  background: var(--accent);
-  color: #000;
-}
+nav a.button:hover { background: var(--accent); color: #000; }
 
 .panel {
   position: relative;
@@ -205,11 +209,11 @@ footer a {
   color: var(--accent);
   text-decoration: none;
 }
-footer a:hover {
-  color: var(--accent-gold);
-}
+footer a:hover { color: var(--accent-gold); }
 
-/* F1elds page - tekstblok linksonder */
+/* =========================================================
+   F1ELDS OVERLAY + ZONE NAV
+   ========================================================= */
 .fields-overlay {
   position: fixed;
   left: 2rem;
@@ -237,11 +241,8 @@ footer a:hover {
   line-height: 1.6;
   color: var(--text);
 }
-.fields-overlay p:last-child {
-  margin-bottom: 0;
-}
+.fields-overlay p:last-child { margin-bottom: 0; }
 
-/* Zone navigatie knoppen naast titel */
 .zone-header {
   display: flex;
   align-items: center;
@@ -250,9 +251,7 @@ footer a:hover {
   gap: 1rem;
   margin-bottom: 0.8rem;
 }
-.zone-header h2 {
-  margin: 0;
-}
+.zone-header h2 { margin: 0; }
 .zone-nav {
   display: flex;
   gap: 0.5rem;
@@ -270,12 +269,8 @@ footer a:hover {
   background: rgba(0, 0, 0, 0.3);
   transition: background 0.3s ease, color 0.3s ease;
 }
-.zone-nav a:hover {
-  background: var(--accent-gold);
-  color: #000;
-}
+.zone-nav a:hover { background: var(--accent-gold); color: #000; }
 
-/* Responsive voor kleinere schermen */
 @media (max-width: 768px) {
   .fields-overlay {
     left: 1rem;
@@ -283,4 +278,58 @@ footer a:hover {
     max-width: calc(100vw - 2rem);
   }
 }
-/* style.css */
+
+/* =========================================================
+   ENEMY PAGE (U.A.I.P.)
+   ========================================================= */
+.enemy-panel {
+  max-width: 860px;
+  margin: 140px auto 120px auto;
+  padding: 2rem;
+  background: var(--glass);
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  line-height: 1.7;
+}
+.enemy-panel h1 {
+  color: var(--accent);
+  font-size: clamp(2.2rem, 4vw, 2.8rem);
+  text-align: center;
+  margin-bottom: 0.6em;
+  text-shadow: 0 0 15px rgba(0,255,136,0.25);
+}
+.enemy-panel h2 {
+  color: var(--accent-gold);
+  font-size: clamp(1.2rem, 2.3vw, 1.5rem);
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+  text-shadow: 0 0 10px rgba(212,175,55,0.35);
+}
+.enemy-panel p {
+  color: var(--text);
+  font-size: 1.05em;
+  text-align: justify;
+  margin-bottom: 1em;
+}
+.cta-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+.cta-row a {
+  display: inline-block;
+  padding: 0.6em 1em;
+  border: 2px solid var(--accent-gold);
+  border-radius: 10px;
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-weight: 700;
+  background: rgba(0,0,0,0.35);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.cta-row a:hover { background: var(--accent-gold); color: #000; }
+
+/* style.css END */
