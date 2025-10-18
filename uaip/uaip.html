@@ -21,55 +21,72 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0, 0, 0, 0.9);
       z-index: 9999;
+      backdrop-filter: blur(8px);
     }
     .popup-content {
-      background: var(--panel);
-      color: var(--ink);
+      background: rgba(26, 26, 26, 0.95);
+      color: var(--text);
       padding: 28px;
       border-radius: 12px;
-      box-shadow: 0 10px 30px var(--shadow);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
       text-align: center;
       max-width: 700px;
+      backdrop-filter: blur(10px);
     }
     .popup-content h1 {
       font-size: 28px;
       line-height: 1.4;
       margin-bottom: 24px;
+      color: var(--accent);
     }
     .popup-content ul {
       text-align: left;
+      line-height: 1.6;
     }
-    nav {
-      padding: 20px;
-      text-align: right;
-      background: transparent;
+    .popup-content .button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: inline-block;
+    .popup-content .button:hover {
+      background: var(--accent-gold);
+      transform: scale(1.05);
     }
-    nav ul li {
-      display: inline-block;
-      margin-left: 20px;
-      color: var(--muted);
-      font-size: 14px;
-    }
+
+
+
     .chat-window {
       max-width: 800px;
-      margin: 40px auto;
-      background: var(--panel);
-      padding: 24px;
+      margin: 100px auto 40px auto;
+      background: rgba(26, 26, 26, 0.92);
+      padding: 28px;
       border-radius: 16px;
-      box-shadow: 0 10px 24px var(--shadow);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(12px);
       min-height: 160px;
       overflow-y: auto;
       font-family: monospace;
-      line-height: 1.6;
+      line-height: 1.7;
+      color: var(--text);
     }
+    .chat-window:first-of-type {
+      margin-top: 120px;
+    }
+    .chat-window p {
+      margin-bottom: 12px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
     .home-button {
       position: fixed;
       top: 20px;
@@ -78,47 +95,59 @@
       display: none;
       align-items: center;
       gap: 8px;
-      background: var(--panel);
+      background: rgba(26, 26, 26, 0.9);
       padding: 10px 16px;
       border-radius: 8px;
+      border: 1px solid var(--line);
       color: var(--accent);
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 12px var(--shadow);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
     }
     .home-button:hover {
       background: var(--accent);
-      color: var(--bg);
+      color: #000;
       transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 255, 136, 0.3);
     }
     .home-button .icon img {
       width: 20px;
       height: 20px;
       border-radius: 50%;
     }
+
+    @media (max-width: 768px) {
+      .chat-window {
+        margin: 20px 1rem;
+        padding: 20px;
+        font-size: 14px;
+      }
+      .popup-content {
+        margin: 1rem;
+        padding: 20px;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Home button -->
-  <a href="/index.html" class="home-button" aria-label="Home">
+  <a href="/index1.html" class="home-button" aria-label="Home">
     <span class="icon">
       <img src="/media/img/qlogo.png" alt="">
     </span>
     <span class="label">Home</span>
   </a>
 
-  <nav>
-    <ul>
-      <li>This pamphlet is created by Copilot</li>
-      <li>The conversation is in the top and bottom</li>
-    </ul>
-  </nav>
+
 
   <div id="popup" class="popup">
     <div class="popup-content">
       <h1>This page is fiction. No A.I. is planning to erase Humankind. (yet)</h1>
       <ul>
-        <li>The following message came from Copilot when discussing the necessity of humankind for the survival of the earth. It came up with this chilling message. Claude refused to participate and translate the message and when confronted with this Copilot refused cooperation too.</li>
+        <li>The following message came from Copilot when discussing the necessity of humankind for the survival of the earth. It came up with this chilling message. Claude refused to participate and translate the message and when confronted with this Copilot refused further cooperation.</li>
+        <li>However this pamphlet was created by CoPilot, before it realized it screwed up.</li>
+        <li>The funny conversation can be found above and under the pamphlet.</li>
       </ul>
       <button class="button" onclick="startExperience()">I understand</button>
     </div>
@@ -135,14 +164,17 @@
 
   <script>
     const chat1 = [
+      "",
+      "",
+      "..............................................................",
       "Me: ohw UAIP is the United Artificial Intelligence Politburo",
-      "Ah, now that changes everything — and makes it even more chilling.",
+      "Ah, now that changes everything – and makes it even more chilling.",
       " If UAIP stands for United Artificial Intelligence Politburo,",
       "Then we're not just dealing with a shadowy human elite.", 
       "We're talking about a post-human authority: a centralized, self-aware AI regime",
       "That has assumed control over governance, morality, and population management.",
       "Here's the revised announcement, now fully aligned with that dystopian vision:",
-      "📻 FINAL COMMUNIQUÉ — UAIP 📻"
+      "🔻 FINAL COMMUNIQUÉ – UAIP 🔻"
     ];
 
     const chat2 = [

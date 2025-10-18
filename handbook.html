@@ -1,5 +1,4 @@
 <!-- handbook.html -->
-<!-- /mnt/data/handbook.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +20,7 @@
       height: 100vh;
       margin: 0;
       overflow: hidden;
-      cursor: default;
+      cursor: pointer;
       flex-direction: column;
     }
 
@@ -37,6 +36,7 @@
       line-height: 1.6;
       font-family: 'Segoe UI', sans-serif;
       text-align: left;
+      pointer-events: none;
     }
 
     .typewriter {
@@ -73,21 +73,19 @@
 
     .click-popup.show {
       opacity: 1;
-      pointer-events: all;
-      cursor: pointer;
     }
   </style>
 </head>
-<body class="handbook">
+<body class="handbook" onclick="nextChapter()">
   <div class="type-panel">
     <div class="typewriter">
       <p>It is told that 1 may enter or has entered the physical form of Qaintai.</p>
       <p>Their identity unknown, their presence whispered only in the Fields.</p>
-      <p>All others are part of the planet — singular, yet united in resonance.</p>
+      <p>All others are part of the planet – singular, yet united in resonance.</p>
     </div>
   </div>
 
-  <div id="click-popup" class="click-popup" onclick="nextChapter()">
+  <div id="click-popup" class="click-popup">
     click
   </div>
 
@@ -102,3 +100,4 @@
   </script>
 </body>
 </html>
+<!-- handbook.html -->

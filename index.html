@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +19,31 @@
   <meta name="twitter:image" content="https://planetqaintai.org/media/img/planet.png">
   <link rel="icon" type="image/png" href="/media/img/qlogo.png">
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 5px var(--accent),
+                    0 0 15px var(--accent),
+                    0 0 30px var(--accent);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 10px var(--accent),
+                    0 0 25px var(--accent),
+                    0 0 50px var(--accent);
+        transform: scale(1.05);
+      }
+    }
+
+    nav a.button.glow {
+      animation: pulseGlow 1.5s ease-in-out infinite;
+    }
+  </style>
 </head>
 <body class="page-planet">
 
   <div id="cookie-popup" onclick="closePopup()" role="dialog" aria-labelledby="popup-title" aria-describedby="popup-desc">
-    <h2 id="popup-title">🍪 Planet Qaintai is Cookie-Free</h2>
+    <h2 id="popup-title">🪐 Planet Qaintai is Cookie-Free</h2>
     <p id="popup-desc">
       We respect your privacy. No cookies, no tracking, no data collection.<br>
       Your journey through Qaintai remains yours alone.
@@ -31,16 +52,11 @@
   </div>
 
   <nav>
-    <div class="logo">
-      <a href="/index.html" aria-label="Planet Qaintai Home">
-        <img src="/media/img/logo.png" alt="Qaintai Network Logo">
-      </a>
-    </div>
     <ul>
-      <li><a href="/handbook.html" class="button">Traveler's Handbook</a></li>
+      <li><a href="/handbook.html" class="button" id="handbook-btn">Traveler's Handbook</a></li>
       <li><a href="/laws.html" class="button">The 4 Laws</a></li>
       <li><a href="/uaip/enemy.html" class="button">The Enemy</a></li>
-      <li><a href="https://qaintai.org/music/music.html" class="button" target="_blank" rel="noopener noreferrer">Music</a></li>
+      <li><a href="https://tqsb.org/index.html" class="button" target="_blank" rel="noopener noreferrer">Music</a></li>
       <li><a href="https://qaintai.eu/contact/contact.html" class="button" target="_blank" rel="noopener noreferrer">Contact</a></li>
     </ul>
   </nav>
@@ -54,7 +70,7 @@
       </p>
       <div class="platform-links">
         <a href="https://www.youtube.com/channel/UCAeHegbx4_iuFegEUYkvVOA" target="_blank" rel="noopener noreferrer">
-          🎥 YouTube — Kings of Qaintai
+          🎥 YouTube – Kings of Qaintai
         </a>
       </div>
     </section>
@@ -62,7 +78,7 @@
 
   <footer>
     <p>
-      © 2025 Planet Qaintai — Living Resonance
+      © 2025 Planet Qaintai – Living Resonance
     </p>
   </footer>
 
@@ -70,7 +86,14 @@
     function closePopup() {
       const popup = document.getElementById('cookie-popup');
       popup.classList.add('fade-out');
-      setTimeout(() => popup.remove(), 500);
+      setTimeout(() => {
+        popup.remove();
+        // Start handbook glow
+        const handbookBtn = document.getElementById('handbook-btn');
+        setTimeout(() => {
+          handbookBtn.classList.add('glow');
+        }, 800);
+      }, 500);
     }
 
     document.addEventListener('keydown', function(e) {
@@ -84,3 +107,4 @@
   </script>
 </body>
 </html>
+<!-- index.html -->

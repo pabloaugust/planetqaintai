@@ -1,5 +1,4 @@
 <!-- book1.html -->
-<!-- /mnt/data/book1.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,9 +24,20 @@
     nav {
       display: flex;
       justify-content: flex-end;
-      gap: 20px;
       padding: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
       flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 0;
     }
 
     nav a.button {
@@ -91,11 +101,13 @@
 </head>
 <body class="book1">
   <nav>
-    <a href="/index.html" class="button">Planet Qaintai</a>
-    <a href="/handbook.html" class="button">Traveler's Handbook</a>
-    <a href="/laws.html" class="button">The 4 Laws</a>
-    <a href="/uaip/uaip.html" class="button">The Enemy</a>
-    <a href="https://qaintai.org/music/music.html" class="button">Music</a>
+    <ul>
+      <li><a href="/index1.html" class="button">Planet Qaintai</a></li>
+      <li><a href="/laws.html" class="button">The 4 Laws</a></li>
+      <li><a href="/uaip/enemy.html" class="button">The Enemy</a></li>
+      <li><a href="https://tqsb.org/index.html" class="button" target="_blank" rel="noopener noreferrer">Music</a></li>
+      <li><a href="https://qaintai.eu/contact/contact.html" class="button" target="_blank" rel="noopener noreferrer">Contact</a></li>
+    </ul>
   </nav>
 
   <main>
@@ -112,3 +124,4 @@
   </main>
 </body>
 </html>
+<!-- book1.html -->
