@@ -1,7 +1,7 @@
 /* style.css */
 /* =========================================================
    Planet Qaintai – Global Stylesheet (Production Version)
-   Updated: Logo verwijderd, mobiele navigatie per pagina
+   Updated: Mobile navigation fixed for correct button order
    ========================================================= */
 
 :root {
@@ -123,9 +123,6 @@ nav {
   backdrop-filter: blur(4px);
   border-bottom: 1px solid var(--line);
 }
-nav .logo {
-  display: none;
-}
 nav ul {
   list-style: none;
   margin: 0;
@@ -134,7 +131,6 @@ nav ul {
   gap: 1rem;
   align-items: center;
 }
-nav ul li { margin: 0; }
 nav a.button {
   display: inline-block;
   padding: 0.5em 1em;
@@ -171,53 +167,11 @@ nav a.button:hover { background: var(--accent); color: #000; }
   margin-bottom: 1em;
 }
 
-.platform-links {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-}
-.platform-links a {
-  display: inline-block;
-  padding: 0.7em 1.2em;
-  border: 2px solid var(--accent-gold);
-  border-radius: 12px;
-  color: var(--accent-gold);
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 1.1em;
-  background: rgba(0, 0, 0, 0.5);
-  transition: background 0.3s ease, color 0.3s ease;
-}
-.platform-links a:hover {
-  background: var(--accent-gold);
-  color: #000;
-}
-
-footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.4);
-  border-top: 1px solid var(--line);
-  color: var(--accent-gold);
-  text-align: center;
-  font-size: 0.9em;
-}
-footer a {
-  color: var(--accent);
-  text-decoration: none;
-}
-footer a:hover { color: var(--accent-gold); }
-
 /* =========================================================
    F1ELDS OVERLAY + ZONE NAV
    ========================================================= */
 .fields-overlay {
-  position: fixed;
+  position: relative;
   left: 2rem;
   bottom: 5rem;
   max-width: 500px;
@@ -237,34 +191,11 @@ footer a:hover { color: var(--accent-gold); }
   margin-bottom: 0.8rem;
   text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
 }
-.fields-overlay p {
-  margin-bottom: 0.8rem;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--text);
-}
-.fields-overlay p:last-child { 
-  margin-bottom: 0; 
-}
-
-.zone-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 0.8rem;
-}
-.zone-header h2 { 
-  margin: 0;
-  font-size: 1.8rem;
-  color: var(--accent);
-}
-
 .zone-nav {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+  margin-bottom: 0.8rem;
 }
 .zone-nav a {
   display: inline-block;
@@ -278,10 +209,7 @@ footer a:hover { color: var(--accent-gold); }
   background: rgba(0, 0, 0, 0.3);
   transition: background 0.3s ease, color 0.3s ease;
 }
-.zone-nav a:hover { 
-  background: var(--accent-gold); 
-  color: #000; 
-}
+.zone-nav a:hover { background: var(--accent-gold); color: #000; }
 
 /* =========================================================
    ENEMY PAGE (U.A.I.P.)
@@ -317,24 +245,6 @@ footer a:hover { color: var(--accent-gold); }
   text-align: justify;
   margin-bottom: 1em;
 }
-.cta-row {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-top: 1.25rem;
-}
-.cta-row a {
-  display: inline-block;
-  padding: 0.6em 1em;
-  border: 2px solid var(--accent-gold);
-  border-radius: 10px;
-  color: var(--accent-gold);
-  text-decoration: none;
-  font-weight: 700;
-  background: rgba(0,0,0,0.35);
-  transition: background 0.3s ease, color 0.3s ease;
-}
-.cta-row a:hover { background: var(--accent-gold); color: #000; }
 
 /* =========================================================
    MOBILE NAVIGATION
@@ -376,42 +286,20 @@ footer a:hover { color: var(--accent-gold); }
     font-size: 0.9rem;
   }
 
-  /* INDEX (page-planet): Handbook, Music, Contact */
-  body.page-planet nav ul li:nth-child(2),
-  body.page-planet nav ul li:nth-child(3) {
-    display: none;
-  }
-
-  /* BOOK1: Planet, Laws, Enemy */
-  body.book1 nav ul li:nth-child(4),
-  body.book1 nav ul li:nth-child(5) {
-    display: none;
-  }
-
-  /* F1ELDS/BE1NG/PARAD1ZE: Handbook, Music, Contact */
-  body.page-f1elds nav ul li:nth-child(2),
-  body.page-f1elds nav ul li:nth-child(3),
-  body.page-be1ng nav ul li:nth-child(2),
-  body.page-be1ng nav ul li:nth-child(3),
-  body.page-parad1ze nav ul li:nth-child(2),
-  body.page-parad1ze nav ul li:nth-child(3) {
-    display: none;
-  }
-
-  /* LAWS (planet-page): Planet, Music, Contact */
-  body.planet-page nav ul li:nth-child(2),
-  body.planet-page nav ul li:nth-child(3) {
+  /* F1ELDS/BE1NG/PARAD1ZE: Music en Contact verdwijnen */
+  body.page-f1elds nav ul li:nth-child(4),
+  body.page-f1elds nav ul li:nth-child(5),
+  body.page-be1ng nav ul li:nth-child(4),
+  body.page-be1ng nav ul li:nth-child(5),
+  body.page-parad1ze nav ul li:nth-child(4),
+  body.page-parad1ze nav ul li:nth-child(5) {
     display: none;
   }
 
   /* Panel margins mobiel */
-  .panel {
-    margin: 100px auto 100px auto;
-    padding: 1.5rem;
-  }
-
+  .panel,
   .enemy-panel {
-    margin: 100px auto 100px auto;
+    margin: 100px auto;
     padding: 1.5rem;
   }
 }
