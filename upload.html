@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Werkplek Upload Test</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    .box { padding: 20px; border: 1px solid #ccc; border-radius: 8px; max-width: 500px; }
+    .details { margin-top: 20px; padding: 15px; background: #f7f7f7; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h2>Werkplek Upload Test (client-side, geen opslag)</h2>
+  <p>Kies een bestand om te testen of je werkplek uploads toestaat. Het bestand wordt <strong>niet</strong> geüpload en blijft alleen in het geheugen.</p>
+
+  <div class="box">
+    <input type="file" id="fileInput">
+    <div id="output" class="details" style="display:none;"></div>
+  </div>
+
+  <script>
+    document.getElementById('fileInput').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      const output = document.getElementById('output');
+
+      if (!file) {
+        output.style.display = 'none';
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        output.style.display = 'block';
+        output.innerHTML = `
+          <strong>Bestandsnaam:</strong> ${file.name}<br>
+          <strong>Type:</strong> ${file.type || 'Onbekend'}<br>
+          <strong>Grootte:</strong> ${file.size} bytes<br>
+          <strong>Preview (indien mogelijk):</strong><br>
+          ${file.type.startsWith('image/') ? `<img src="${e.target.result}" style="max-width:100%; margin-top:10px;">` : 'Geen afbeelding of preview niet beschikbaar.'}
+        `;
+      };
+
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>
